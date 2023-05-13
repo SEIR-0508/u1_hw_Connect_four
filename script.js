@@ -9,79 +9,107 @@ playerName.style.color = 'red'
 for (let i = 0; i < colSelect.length; i++) {
     colSelect[i].addEventListener('click', () => {
         if (i === 0) {
-            console.log(`We clicked the first arrow`)
-            for (let j = 0; j <= 5; j++) {
-                console.log(`our spots are: ${j}`)
+            for (let j = 5; j >= 0; j--) {
                 if (player === 1) {
-
+                    if (!spot[j].style.backgroundColor) {
+                        spot[j].style.backgroundColor = 'red'
+                        break;
+                    }
                 } else {
-
+                    if (!spot[j].style.backgroundColor) {
+                        spot[j].style.backgroundColor = 'blue'
+                        break;
+                    }
                 }
             }
             playerChanger(player)
         } else if (i === 1) {
-            console.log(`We clicked the second arrow`)
-            for (let j = 6; j <= 11; j++) {
-                console.log(`our spots are: ${j}`)
+            for (let j = 11; j >= 6; j--) {
                 if (player === 1) {
-
+                    if (!spot[j].style.backgroundColor) {
+                        spot[j].style.backgroundColor = 'red'
+                        break;
+                    }
                 } else {
-                    
+                    if (!spot[j].style.backgroundColor) {
+                        spot[j].style.backgroundColor = 'blue'
+                        break;
+                    }
                 }
             }
             playerChanger(player)
         } else if (i === 2) {
-            console.log(`We clicked the third arrow`)
-            for (let j = 12; j <= 17; j++) {
-                console.log(`our spots are: ${j}`)
+            for (let j = 17; j >= 12; j--) {
                 if (player === 1) {
-
+                    if (!spot[j].style.backgroundColor) {
+                        spot[j].style.backgroundColor = 'red'
+                        break;
+                    }
                 } else {
-                    
+                    if (!spot[j].style.backgroundColor) {
+                        spot[j].style.backgroundColor = 'blue'
+                        break;
+                    }
                 }
             }
             playerChanger(player)
         } else if (i === 3) {
-            console.log(`We clicked the fourth arrow`)
-            for (let j = 18; j <= 23; j++) {
-                console.log(`our spots are: ${j}`)
+            for (let j = 23; j >= 18; j--) {
                 if (player === 1) {
-
+                    if (!spot[j].style.backgroundColor) {
+                        spot[j].style.backgroundColor = 'red'
+                        break;
+                    }
                 } else {
-                    
+                    if (!spot[j].style.backgroundColor) {
+                        spot[j].style.backgroundColor = 'blue'
+                        break;
+                    }
                 }
             }
             playerChanger(player)
         } else if (i === 4) {
-            console.log(`We clicked the fifth arrow`)
-            for (let j = 24; j <= 29; j++) {
-                console.log(`our spots are: ${j}`)
+            for (let j = 29; j >= 24; j--) {
                 if (player === 1) {
-
+                    if (!spot[j].style.backgroundColor) {
+                        spot[j].style.backgroundColor = 'red'
+                        break;
+                    }
                 } else {
-                    
+                    if (!spot[j].style.backgroundColor) {
+                        spot[j].style.backgroundColor = 'blue'
+                        break;
+                    }
                 }
             }
             playerChanger(player)
         } else if (i === 5) {
-            console.log(`We clicked the sixth arrow`)
-            for (let j = 30; j <= 35; j++) {
-                console.log(`our spots are: ${j}`)
+            for (let j = 35; j >= 30; j--) {
                 if (player === 1) {
-
+                    if (!spot[j].style.backgroundColor) {
+                        spot[j].style.backgroundColor = 'red'
+                        break;
+                    }
                 } else {
-                    
+                    if (!spot[j].style.backgroundColor) {
+                        spot[j].style.backgroundColor = 'blue'
+                        break;
+                    }
                 }
             }
             playerChanger(player)
         } else {
-            console.log(`We clicked the seventh arrow`)
-            for (let j = 36; j <= 41; j++) {
-                console.log(`our spots are: ${j}`)
+            for (let j = 41; j >= 36; j--) {
                 if (player === 1) {
-
+                    if (!spot[j].style.backgroundColor) {
+                        spot[j].style.backgroundColor = 'red'
+                        break;
+                    }
                 } else {
-                    
+                    if (!spot[j].style.backgroundColor) {
+                        spot[j].style.backgroundColor = 'blue'
+                        break;
+                    }
                 }
             }
             playerChanger(player)

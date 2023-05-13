@@ -1,0 +1,50 @@
+/* Elements */
+
+body {
+    height: 100%;
+    width: 750px;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: grey;
+    text-align: center;    
+}
+
+h1 {
+    text-transform: uppercase;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    font-size: 4rem;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0 auto;
+}
+
+
+/* Classes */
+
+.row {
+    text-align: center;
+    display: inline-grid;
+    margin: 0;
+    padding: 0;
+}
+
+.arrow {
+    transform: rotate(90deg);
+    padding: 0 .25rem;
+    color: black;
+}
+
+.circle {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 75%;
+    border: .25rem solid grey;
+}

@@ -31,9 +31,23 @@ let whosTurn;
 let winner;
 
 /*----- state variables -----*/
+const players =
+{
 
+'0': 'white',
+'1': 'red',
+'-1': 'blue',
+
+
+
+}
 
 /*----- cached elements  -----*/
+const messageEl = document.getElementById('winnerTitle');
+const playAgainButton = document.querySelector('.playAgain');
+const markerEl = docuement.querySelectorAll('td')
+
+
 
 
 /*----- event listeners -----*/
@@ -69,6 +83,63 @@ winnerMsg();
 control();
 }
 
+
+/*Ok, so I tried again after cooling off.  I understand what this does
+I think. 
+
+It's a function that gets the turns the cellEl background the color of the player
+who just went, sets the CellID to the column  index and row index,
+then renders the board again?  I'm confused here.  I re-typed this and
+changed the variables but I dont understand what It's doing I dont think.
+
+*/
+
+function createBoard(){
+board.forEach(function(colArr, colIndx)
+{
+colArr.forEach(function(cellID, rowIdx)
+{
+const cellID = `c${colIndx}r${rowIdx}`
+const cellEl = document.getElementById(cellID);
+cellEl.style.backgroundColor = players[cellID];
+}
+);
+
+}
+);
+}
+
+
+function renderWinner()
+{
+//So I understand this as well.  It's just hard for me to create this 
+//It sets the winner to the player's color that wins, or
+//sets the player color to who's turn it is. 
+    if (winner === T)
+    {
+        messageEl.innerText = "Tie";
+
+    }
+    else if (winner)
+    {
+        messageEl.innerHTML = `<span style = "color: ${players[winner]}">
+        ${players[winner].toUpperCase()}</span> Wins!`;
+    }
+    else
+    {
+        messageEl.innerHTML = `<span style = "color: ${players[turn]}">
+        ${players[winner].toUpperCase()}</span> turn.`;
+    };
+}
+
+function renderControls()
+{
+
+
+
+}
+
+/*
 function createBoard(){
 board.forEach(function(itColl, colId)
 {
@@ -83,3 +154,4 @@ board.forEach(function(itColl, colId)
 
 
 }
+*/

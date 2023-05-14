@@ -15,10 +15,6 @@ h1 {
     text-transform: uppercase;
 }
 
-ul {
-    list-style-type: none;
-}
-
 li {
     font-size: 2rem;
     display: flex;
@@ -27,15 +23,11 @@ li {
     margin: 0 auto;
 }
 
+ul {
+    list-style-type: none;
+}
 
 /* Classes */
-
-.row {
-    text-align: center;
-    display: inline-grid;
-    margin: 0;
-    padding: 0;
-}
 
 .arrow {
     transform: rotate(90deg);
@@ -53,6 +45,23 @@ li {
     transition: all 250ms ease;
 }
 
+.resetBtn {
+    pointer-events: all;
+    transform: translate(-0%, 25%);
+    width: 20rem;
+    height: 10rem;
+    background-color: whitesmoke;
+    font-size: 2rem;
+    border-radius: 5%;
+}
+
+.row {
+    text-align: center;
+    display: inline-grid;
+    margin: 0;
+    padding: 0;
+}
+
 .winnersScreen {
     background-color: black;
     opacity: 0;
@@ -68,17 +77,8 @@ li {
     pointer-events: none;
 }
 
-.resetBtn {
-    pointer-events: all;
-    transform: translate(-0%, 25%);
-    width: 20rem;
-    height: 10rem;
-    background-color: whitesmoke;
-    font-size: 2rem;
-    border-radius: 5%;
-}
-
 .winnersTitle { 
     font-size: 3rem;
     text-align: center;
 }
+

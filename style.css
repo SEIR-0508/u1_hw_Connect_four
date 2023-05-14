@@ -46,7 +46,6 @@ ul {
 }
 
 .resetBtn {
-    pointer-events: all;
     transform: translate(-0%, 25%);
     width: 20rem;
     height: 10rem;
@@ -74,11 +73,19 @@ ul {
     text-align: center;
     transition: all 250ms ease;
     z-index: 1;
-    pointer-events: none;
 }
 
 .winnersTitle { 
     font-size: 3rem;
     text-align: center;
 }
+
+.noPointer {
+    pointer-events: none;
+}
+
+.pointer {
+    pointer-events: all;
+}
+
 

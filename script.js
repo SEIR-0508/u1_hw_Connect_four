@@ -39,16 +39,13 @@ for (let i = 0; i < colSelect.length; i++) {
 for (let x = 0; x < spot.length; x++) {
     winnerBtn.addEventListener('click', () => {
         spot[x].style.backgroundColor = "white"
+        winnersScreen.classList.remove('pointer');
+        winnersScreen.classList.add('noPointer')
+        if (winnersScreen.style.opacity !=0) {
+            winnersScreen.style.opacity = 0
+        }
     })
 }
-
-winnerBtn.addEventListener('click', () => {
-    if (winnersScreen.style.opacity !=0) {
-        winnersScreen.style.opacity = 0
-        console.log(`should work?`)
-    }
-})
-
 
 /* --- Functions --- */
 
@@ -90,12 +87,17 @@ checkWin = () => {
            winnerName.innerText = "Red"
            winnerName.style.color = "red"
            winnersScreen.style.opacity = .90
+           winnersScreen.classList.remove('noPointer')
+            winnersScreen.classList.add('pointer')
 
            // check for blue win
         } else if (thisSpot.every((spotNum) => spot[spotNum].style.backgroundColor === "blue")) {
             winnerName.innerText = "Blue"
             winnerName.style.color = "blue"
             winnersScreen.style.opacity = .90
+            winnersScreen.classList.remove('noPointer')
+            winnersScreen.classList.add('pointer')
+
         } 
     }
 

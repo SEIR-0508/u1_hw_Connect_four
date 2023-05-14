@@ -9,18 +9,19 @@
 </head>
 <body>
     <header>
-        <h1>Connect Four</h1>
+        <h1 class="title">Connect Four</h1>
         <h2 class="whoTurn"><span class="player"></span>'s turn</h2>
     </header>
     <nav>
 
     </nav>
     <main>
+        <section class="gameBoard">
         <div class="row">
             <ul>
                 <li>
                     <ul class="col col1">
-                        <li class="arrow arrow1">&#10162;</li>
+                        <li class="arrow">&#10162;</li>
                         <li class="circle"></li>
                         <li class="circle"></li>
                         <li class="circle"></li>
@@ -34,7 +35,7 @@
         <div class="row">
             <li>
                 <ul class="col col2">
-                    <li class="arrow arrow2">&#10162;</li>
+                    <li class="arrow">&#10162;</li>
                     <li class="circle"></li>
                     <li class="circle"></li>
                     <li class="circle"></li>
@@ -47,7 +48,7 @@
         <div class="row">
             <li>
                 <ul class="col col3">
-                    <li class="arrow arrow3">&#10162;</li>
+                    <li class="arrow">&#10162;</li>
                     <li class="circle"></li>
                     <li class="circle"></li>
                     <li class="circle"></li>
@@ -60,7 +61,7 @@
         <div class="row">
             <li>
                 <ul class="col col4">
-                    <li class="arrow arrow4">&#10162;</li>
+                    <li class="arrow">&#10162;</li>
                     <li class="circle"></li>
                     <li class="circle"></li>
                     <li class="circle"></li>
@@ -73,7 +74,7 @@
         <div class="row">
             <li>
                 <ul class="col col5">
-                    <li class="arrow arrow5">&#10162;</li>
+                    <li class="arrow">&#10162;</li>
                     <li class="circle"></li>
                     <li class="circle"></li>
                     <li class="circle"></li>
@@ -86,7 +87,7 @@
         <div class="row">
             <li>
                 <ul class="col col6">
-                    <li class="arrow arrow6">&#10162;</li>
+                    <li class="arrow">&#10162;</li>
                     <li class="circle"></li>
                     <li class="circle"></li>
                     <li class="circle"></li>
@@ -99,7 +100,7 @@
         <div class="row">
             <li>
                 <ul class="col col7">
-                    <li class="arrow arrow7">&#10162;</li>
+                    <li class="arrow">&#10162;</li>
                     <li class="circle"></li>
                     <li class="circle"></li>
                     <li class="circle"></li>
@@ -109,6 +110,13 @@
                 </ul>
             </li>
         </div>
+    </section>
+
+    <section class="winnersScreen">
+        <p class="winnersTitle"><span class="winner"></span> wins!!</p>
+        <button class="resetBtn">Reset Game</button>
+    </section>
+
     </main>
     <footer>
 

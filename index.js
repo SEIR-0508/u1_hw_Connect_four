@@ -1,9 +1,8 @@
-// Initialize game with red starting first
-let redPlayerTurn = true
-let message = document.querySelector('.message')
-message.innerHTML = `Red's Turn`
-message.style.color = 'red'
-
+// Declare Variables
+let redPlayerTurn;
+let redTurnDisplay = document.querySelector('.red-turn')
+let yellowTurnDisplay = document.querySelector('.yellow-turn')
+let playAgain = document.querySelector('.play-again')
 
 // Renders the dropper controls and game board
 function render() {
@@ -23,19 +22,26 @@ function render() {
     }
     const gameContainer = document.querySelector('.game-container')
     gameContainer.innerHTML = gameHTML
+    redPlayerTurn = true
+    redTurnDisplay.style.opacity = 1;
+    yellowTurnDisplay.style.opacity = 0;
+    playAgain.style.opacity = 0;
+
+    const droppers = document.querySelectorAll('.dropper')
+    for (const dropper of droppers) {
+        dropper.addEventListener('click', (e) => {
+            let col = e.target.getAttribute("col")
+            handleDrop(col)
+            getWinner()
+        })
+    }
+
+    playAgain.addEventListener('click', () => {
+        render()
+    })
 }
 
 render()
-
-// Add event listener to all 6 dropper elements
-const droppers = document.querySelectorAll('.dropper')
-for (const dropper of droppers) {
-    dropper.addEventListener('click', (e) => {
-        let col = e.target.getAttribute("col")
-        handleDrop(col)
-        getWinner()
-    })
-}
 
 // Declare functions to drop game piece and set color
 
@@ -54,12 +60,12 @@ function setColor(slot) {
     let color;
     if (redPlayerTurn == true) {
         color = 'red'
-        message.innerHTML = `Yellow's Turn`
-        message.style.color = `yellow`
+        redTurnDisplay.style.opacity = 0;
+        yellowTurnDisplay.style.opacity = 1;
     } else {
         color = 'yellow'
-        message.innerHTML = `Red's Turn`
-        message.style.color = `red`
+        redTurnDisplay.style.opacity = 1;
+        yellowTurnDisplay.style.opacity = 0;
     }
     slot.style.backgroundColor = color
     slot.setAttribute("value", color)
@@ -94,6 +100,9 @@ function checkNoWinner() {
         }
     }
     if (activeCounter >= 6) {
+        redTurnDisplay.style.opacity = 0;
+        yellowTurnDisplay.style.opacity = 0;
+        playAgain.style.opacity = 1;
         setTimeout(() => {
             alert('Game Over! No Winner!')
         }, 50)
@@ -112,6 +121,9 @@ function checkVertical(value, row, col) {
         let twoAboveValue = twoAbove.getAttribute("value")
         let threeAboveValue = threeAbove.getAttribute("value")
         if(value === oneAboveValue && value == twoAboveValue && value == threeAboveValue) {
+            redTurnDisplay.style.opacity = 0;
+            yellowTurnDisplay.style.opacity = 0;
+            playAgain.style.opacity = 1;
             setTimeout(() => {
                 alert(`${value.toUpperCase()} WINS!`)
             }, 50)
@@ -131,6 +143,9 @@ function checkHorizontal(value, row, col) {
         let twoOverValue = twoOver.getAttribute("value")
         let threeOverValue = threeOver.getAttribute("value")
         if(value === oneOverValue && value == twoOverValue && value == threeOverValue) {
+            redTurnDisplay.style.opacity = 0;
+            yellowTurnDisplay.style.opacity = 0;
+            playAgain.style.opacity = 1;
             setTimeout(() => {
                 alert(`${value.toUpperCase()} WINS!`)
             }, 50)
@@ -150,6 +165,9 @@ function checkNE(value, row, col) {
         let twoNEValue = twoNE.getAttribute("value")
         let threeNEValue = threeNE.getAttribute("value")
         if(value === oneNEValue && value == twoNEValue && value == threeNEValue) {
+            redTurnDisplay.style.opacity = 0;
+            yellowTurnDisplay.style.opacity = 0;
+            playAgain.style.opacity = 1;
             setTimeout(() => {
                 alert(`${value.toUpperCase()} WINS!`)
             }, 50)
@@ -169,6 +187,9 @@ function checkNW(value, row, col) {
         let twoNWValue = twoNW.getAttribute("value")
         let threeNWValue = threeNW.getAttribute("value")
         if(value === oneNWValue && value == twoNWValue && value == threeNWValue) {
+            redTurnDisplay.style.opacity = 0;
+            yellowTurnDisplay.style.opacity = 0;
+            playAgain.style.opacity = 1;
             setTimeout(() => {
                 alert(`${value.toUpperCase()} WINS!`)
             }, 50)

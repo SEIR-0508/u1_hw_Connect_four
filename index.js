@@ -3,6 +3,7 @@ let redPlayerTurn;
 let redTurnDisplay = document.querySelector('.red-turn')
 let yellowTurnDisplay = document.querySelector('.yellow-turn')
 let playAgain = document.querySelector('.play-again')
+let titleText = document.getElementById('title-text')
 
 // Renders the dropper controls and game board
 function render() {
@@ -124,6 +125,7 @@ function checkVertical(value, row, col) {
             redTurnDisplay.style.opacity = 0;
             yellowTurnDisplay.style.opacity = 0;
             playAgain.style.opacity = 1;
+            
             setTimeout(() => {
                 alert(`${value.toUpperCase()} WINS!`)
             }, 50)

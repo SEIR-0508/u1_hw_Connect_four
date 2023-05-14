@@ -10,14 +10,14 @@ function render() {
     let controlHTML = "";
     let gameHTML = "";
 
-    for (let i = 1; i <= 6; i++) {
+    for (let i = 1; i <= 7; i++) {
         controlHTML += `<div class="dropper" col=${i}></div> `
     }
     const controls = document.querySelector('.controls')
     controls.innerHTML = controlHTML
 
     for (let i = 6; i >= 1; i--) {
-        for (let j = 1; j <= 6; j++) {
+        for (let j = 1; j <= 7; j++) {
             gameHTML += `<div class="slot row${i} col${j}" row=${i} col=${j} id="row${i}col${j}" value="none"></div> `
         }
     }
@@ -47,7 +47,7 @@ render()
 // Declare functions to drop game piece and set color
 
 function handleDrop(col) {
-    for (let i = 1; i <= 6; i++) {
+    for (let i = 1; i <= 7; i++) {
         let slot = document.getElementById(`row${i}col${col}`)
         let value = slot.getAttribute("value")
         if (value == "none") {
@@ -100,7 +100,7 @@ function checkNoWinner() {
             activeCounter++
         }
     }
-    if (activeCounter >= 6) {
+    if (activeCounter >= 7) {
         redTurnDisplay.style.opacity = 0;
         yellowTurnDisplay.style.opacity = 0;
         playAgain.style.opacity = 1;

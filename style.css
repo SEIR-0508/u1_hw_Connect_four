@@ -33,3 +33,14 @@ th
     opacity: 1;
     background-color:rgb(255, 255, 255);;
 }
+
+th:hover
+{
+    color:white;
+    background-color: purple;
+}
+
+#winnerTitle
+{
+    opacity:0;
+}

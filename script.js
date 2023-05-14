@@ -19,6 +19,20 @@ Thanks-
 Christopher
 
 
+I came back to it after this previous message and got a bit further
+I put in comments what I'm understanding based on what I got done (redoing what
+    was on teh github page for the assginment basically. 
+I am able to work things out in my/pseudo-code, but when it comes to putting htem
+into code it falls apart
+
+AGain, if this doesn't count as a submission I can use the hoemwork
+pass I recieved from teh frog game on it.
+
+If it does, thanks.  
+
+Any help I Can get would be greatly appreciated.  Idont' want to fall behind
+any further than I am
+
 
 */
 

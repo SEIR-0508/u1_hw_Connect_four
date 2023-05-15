@@ -1,0 +1,61 @@
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0 auto;
+    font-family: sans-serif;
+}
+
+header {
+    position: relative;
+    text-align: center;
+    font-family: 'Inconsolata', monospace;
+}
+
+h1 {
+    font-size: 7vmin;
+    letter-spacing: 1.5vmin;
+    color: gray;
+}
+
+h2 {
+    font-size: 3vmin;
+}
+
+main {
+    margin: -10vmin 0 2vmin 0 ;
+    background-color: skyblue;
+    border-width: 1vmin;
+    border-style: solid;
+    border-color: skyblue;
+}
+
+#triangles {
+    width: 77vmin;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+
+#triangles > div {
+    height: 8vmin;
+    border-width: 4vmin;
+    border-style: solid;
+    border-color: lightgrey transparent transparent transparent;
+}
+  
+#spaces {
+    display: grid;
+    grid-template-columns: 10vmin 10vmin 10vmin 10vmin 10vmin 10vmin 10vmin;
+    grid-template-rows: 10vmin 10vmin 10vmin 10vmin 10vmin 10vmin;
+    grid-gap: 1vmin;
+}
+#spaces > div {
+    border-radius: 50%;
+    border: 0.2vmin solid black;
+
+}

@@ -28,7 +28,7 @@ function init() {
 
     gameBoard = [
         // each of these individual arrays is a column on the gameBoard
-        [1,0,0,0,0,0],
+        [1,1,1,-1,1,1],
         [1,0,0,0,0,0],
         [0,0,0,0,-1,0],
         [1,0,0,0,0,0],
@@ -78,10 +78,14 @@ function renderControls() {
 
     triangles.forEach(function(tri, triNum) {
         //tri is the value of each triangle while triNum is the index location of tha particular triangle
-        if (gameBoard[triNum].some(0) || !winner ) {
-            tri.style.visibility = 'visible';
-        } else {
+
+        // let viableCol = gameBoard[triNum].some((cirlce) => cirlce !== '0'); -- this line of code did't work and I don't know why yet. Used the includes function from the repo hint
+        let viableCol = gameBoard[triNum].includes(0);
+        console.log(viableCol)
+        if (viableCol === false) {
             tri.style.visibility = 'hidden';
+        } else {
+            tri.style.visibility = 'visible';
         }
     }
     )

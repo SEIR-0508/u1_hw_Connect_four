@@ -1,8 +1,8 @@
 /*----- constants -----*/
 const colorKey = {
-    '-1': 'yellow',
+    '-1': 'red',
     '0': 'white',
-    '1': 'red',
+    '1': 'green',
 };
 
 

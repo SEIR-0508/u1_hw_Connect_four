@@ -27,7 +27,14 @@ playAgain.addEventListener('click', init);
 
 for (let i = 0 ; i<triangles.length; i++) {
     // console.log(i);
-    triangles[i].addEventListener('click', () => {
+    triangles[i].addEventListener('mouseover', () => {
+        triangles[i].setAttribute("style", `border-top-color: ${colorKey[playerTurn]};`)
+     }, false);
+     triangles[i].addEventListener('mouseout', () => {
+        triangles[i].setAttribute("style", "border-top-color: lightgrey;")
+     }, false);
+
+     triangles[i].addEventListener('click', () => {
         console.log(i);
         let colArray = gameBoard[i];
         let targetRow = colArray.findIndex((row) => row === 0);
@@ -35,6 +42,7 @@ for (let i = 0 ; i<triangles.length; i++) {
         colArray[targetRow] = playerTurn;
         playerTurn = playerTurn * -1;
         winner = getWinner(i,targetRow);
+        triangles[i].setAttribute("style", `border-top-color: ${colorKey[playerTurn]};`)
         render();
         return;
     });
@@ -84,7 +92,7 @@ function renderMessage() {
     } else if (winner) {
         turnMessage.innerHTML = `<span>${colorKey[winner]} Wins!</span>`
     } else {
-        turnMessage.innerHTML = `<span>${colorKey[playerTurn]}'s turn</span>`
+        turnMessage.innerHTML = `<span style="color: ${colorKey[playerTurn]}">${colorKey[playerTurn]}'s</span> turn`
     }
 }
 
@@ -133,7 +141,9 @@ function countAdjacent(colIndex, rowIndex, colOffset, rowOffset) {
 }
 
 function checkVert(colIndex, rowIndex) {
-    if (countAdjacent(colIndex,rowIndex,0,1) === 3) {
+    let checkUp = countAdjacent(colIndex,rowIndex,0,1);
+    let checkDown = countAdjacent(colIndex,rowIndex,0,-1);
+    if (checkUp + checkDown >= 3) {
         return gameBoard[colIndex][rowIndex];
     } else {
         return null;

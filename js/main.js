@@ -9,6 +9,7 @@ const colorKey = {
 const triangles = document.querySelectorAll(`#triangles > div`);
 const playAgain = document.querySelector(`button`);
 const turnMessage = document.querySelector(`h2`);
+const allTriangles = document.getElementById(`triangles`)
 
 /*----- state variables -----*/
 let gameBoard;
@@ -20,6 +21,25 @@ let winner;
 
 /*----- event listeners -----*/
 
+playAgain.addEventListener('click', init);
+
+// couldn't get the handleDrops indiviudal function to work
+
+for (let i = 0 ; i<triangles.length; i++) {
+    // console.log(i);
+    triangles[i].addEventListener('click', () => {
+        console.log(i);
+        let colArray = gameBoard[i];
+        let targetRow = colArray.findIndex((row) => row === 0);
+        console.log(targetRow);
+        colArray[targetRow] = playerTurn;
+        playerTurn = playerTurn * -1;
+        render();
+        return;
+    });
+}
+// allTriangles.addEventListener('click', handleDrop);
+
 
 /*----- functions -----*/
 
@@ -28,11 +48,11 @@ function init() {
 
     gameBoard = [
         // each of these individual arrays is a column on the gameBoard
-        [1,1,1,-1,1,1],
-        [1,0,0,0,0,0],
-        [0,0,0,0,-1,0],
-        [1,0,0,0,0,0],
-        [0,0,-1,0,0,0],
+        [0,0,0,0,0,0],
+        [0,0,0,0,0,0],
+        [0,0,0,0,0,0],
+        [0,0,0,0,0,0],
+        [0,0,0,0,0,0],
         [0,0,0,0,0,0],
         [0,0,0,0,0,0],
     ];
@@ -59,12 +79,12 @@ function renderBoard() {
 }
 
 function renderMessage() {
-    if (winner = 'Tie') {
+    if (winner === 'Tie') {
         turnMessage.innerHTML = `<span>TIE GAME!</span>`
     } else if (winner) {
         turnMessage.innerHTML = `<span>${colorKey[winner]} Wins!</span>`
     } else {
-        turnMessage.innerHTML = `<span>${colorKey[winner]}'s turn</span>`
+        turnMessage.innerHTML = `<span>${colorKey[playerTurn]}'s turn</span>`
     }
 
 }
@@ -75,14 +95,15 @@ function renderControls() {
     } else {
         playAgain.style.opacity = 0;
     }
-
     triangles.forEach(function(tri, triNum) {
         //tri is the value of each triangle while triNum is the index location of tha particular triangle
 
-        // let viableCol = gameBoard[triNum].some((cirlce) => cirlce !== '0'); -- this line of code did't work and I don't know why yet. Used the includes function from the repo hint
+        // let viableCol = gameBoard[triNum].some((cirlce) => cirlce !== '0');  -- this line of code did't work and I don't know why yet. Used the includes function from the repo hint
         let viableCol = gameBoard[triNum].includes(0);
-        console.log(viableCol)
-        if (viableCol === false) {
+
+        // console.log(viableCol)
+        // console.log(winner)
+        if (viableCol === false || winner) {
             tri.style.visibility = 'hidden';
         } else {
             tri.style.visibility = 'visible';
@@ -91,7 +112,10 @@ function renderControls() {
     )
 }
 
-
-
+function handleDrop(columnIndex) {
+    
+}
 
 init();
+
+

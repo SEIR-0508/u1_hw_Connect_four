@@ -1,0 +1,91 @@
+/* Elements */
+
+body {
+    height: 100%;
+    width: 750px;
+    margin: 2rem;
+    padding: 0;
+    background-color: white;
+    color: grey;
+    text-align: center;    
+    position: absolute;
+}
+
+h1 {
+    text-transform: uppercase;
+}
+
+li {
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0 auto;
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* Classes */
+
+.arrow {
+    transform: rotate(90deg);
+    font-size: 4rem;
+    padding: 0 .25rem;
+    color: black;
+}
+
+.circle {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 75%;
+    border: .25rem solid grey;
+    background-color: white;
+    transition: all 250ms ease;
+}
+
+.resetBtn {
+    transform: translate(-0%, 25%);
+    width: 20rem;
+    height: 10rem;
+    background-color: whitesmoke;
+    font-size: 2rem;
+    border-radius: 5%;
+}
+
+.row {
+    text-align: center;
+    display: inline-grid;
+    margin: 0;
+    padding: 0;
+}
+
+.winnersScreen {
+    background-color: black;
+    opacity: 0;
+    position: absolute;
+    top: 10%;
+    width:750px;
+    left: 25%;
+    height: 50%;
+    transform: translate(-20%, 0%);
+    text-align: center;
+    transition: all 250ms ease;
+    z-index: 1;
+}
+
+.winnersTitle { 
+    font-size: 3rem;
+    text-align: center;
+}
+
+.noPointer {
+    pointer-events: none;
+}
+
+.pointer {
+    pointer-events: all;
+}
+
+

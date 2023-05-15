@@ -34,6 +34,7 @@ for (let i = 0 ; i<triangles.length; i++) {
         console.log(targetRow);
         colArray[targetRow] = playerTurn;
         playerTurn = playerTurn * -1;
+        winner = getWinner(i,targetRow);
         render();
         return;
     });
@@ -56,7 +57,6 @@ function init() {
         [0,0,0,0,0,0],
         [0,0,0,0,0,0],
     ];
-    
     winner = null;
     render();
 }
@@ -86,7 +86,6 @@ function renderMessage() {
     } else {
         turnMessage.innerHTML = `<span>${colorKey[playerTurn]}'s turn</span>`
     }
-
 }
 
 function renderControls() {
@@ -113,8 +112,71 @@ function renderControls() {
 }
 
 function handleDrop(columnIndex) {
-    
+    // for some reason this breaks when I copy the code from the anonymous function above
 }
+
+function countAdjacent(colIndex, rowIndex, colOffset, rowOffset) {
+    let whichPlayer= gameBoard[colIndex][rowIndex];
+    let count = 0;
+    colIndex += colOffset;
+    rowIndex += rowOffset;
+    while (
+        gameBoard[colIndex] !== undefined &&
+        gameBoard[colIndex][rowIndex] !== undefined &&
+        gameBoard[colIndex][rowIndex] === whichPlayer
+    ) {
+        count++;
+        colIndex += colOffset;
+        rowIndex += rowOffset;
+    }
+    return count;
+}
+
+function checkVert(colIndex, rowIndex) {
+    if (countAdjacent(colIndex,rowIndex,0,1) === 3) {
+        return gameBoard[colIndex][rowIndex];
+    } else {
+        return null;
+    }
+}
+
+function checkHorz(colIndex, rowIndex) {
+    let checkLeft = countAdjacent(colIndex,rowIndex,-1,0);
+    let checkRight = countAdjacent(colIndex,rowIndex,1,0);
+    if (checkRight + checkLeft >= 3) {
+        return gameBoard[colIndex][rowIndex];
+    } else {
+        return null;
+    }
+}
+
+function checkDiaNWSE(colIndex, rowIndex) {
+    let checkNW = countAdjacent(colIndex,rowIndex,-1,1);
+    let checkSE = countAdjacent(colIndex,rowIndex,1,-1);
+    if (checkNW + checkSE >= 3) {
+        return gameBoard[colIndex][rowIndex];
+    } else {
+        return null;
+    }
+}
+
+function checkDiaNESW(colIndex, rowIndex) {
+    let checkNE = countAdjacent(colIndex,rowIndex,1,1);
+    let checkSW = countAdjacent(colIndex,rowIndex,-1,-1);
+    if (checkNE + checkSW >= 3) {
+        return gameBoard[colIndex][rowIndex];
+    } else {
+        return null;
+    }
+}
+
+
+function getWinner (colIndex, rowIndex) {
+    return checkVert(colIndex,rowIndex) || checkHorz(colIndex,rowIndex) || checkDiaNWSE(colIndex,rowIndex) || checkDiaNESW(colIndex,rowIndex);
+}
+
+
+
 
 init();
 

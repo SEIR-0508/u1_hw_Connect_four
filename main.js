@@ -1,9 +1,12 @@
+// followed along on TI Connect Four lesson
+
+
 /*----- constants -----*/
 
 const colors = {
     '0': 'white',
     '1': 'blue',
-    '2': 'red',
+    '-1': 'red',
     }
 
 /*----- state variables -----*/
@@ -19,11 +22,12 @@ const colors = {
 
 const messageElement = document.querySelector('h3');
 const playAgain = document.querySelector('button');
-const columnButtons = document.querySelectorAll('.column-buttons > div');
+const columnButtons = [...document.querySelectorAll('.column-buttons > div')];
 
 /*----- event listeners -----*/
 
 document.querySelector('.column-buttons').addEventListener('click', playersMove);
+playAgain.addEventListener('click', init)
 
 /*----- functions -----*/
 
@@ -43,6 +47,48 @@ function init() {
 }
 init();
 
+
+function playersMove(event) {
+    const colClicked = event.target;
+    if (colClicked === null) {
+        return;
+    }
+    const columnIndex = columnButtons.indexOf(colClicked);
+    const columns = gameBoard[columnIndex];
+    const clkRowIndex = columns.indexOf(0);
+    // update gameboard with current player value (1 or 2 --> playerTurn)
+    gameBoard[columnIndex][clkRowIndex] = playerTurn;
+    // change player turn
+    playerTurn *= -1;
+    // check for a winner
+
+    winner = getWinner();
+
+    render();
+}
+
+function getWinner(columnIndex, clkRowIndex) {
+    return vertWin(columnIndex, clkRowIndex);
+}
+
+function vertWin(columnIndex, clkRowIndex) { /* <-- where the last move was made */
+    return countChips(columnIndex, clkRowIndex, 0, -1) === 3 ? gameBoard[columnIndex][clkRowIndex] : null;
+}
+
+function countChips(columnIndex, clkRowIndex, colCheck, rowCheck) {
+    const player = gameBoard[columnIndex][clkRowIndex];
+    let count = 0;
+    columnIndex += colCheck;
+    clkRowIndex += rowCheck;
+    while (
+        gameBoard[columnIndex] !== undefined && gameBoard[columnIndex][clkRowIndex] !== undefined && gameBoard[columnIndex][clkRowIndex] === player
+        ) {
+            count++;
+            columnIndex += colCheck;
+            clkRowIndex += rowCheck;
+        }
+    return count;
+}
 
 function render() {
     renderBoard();
@@ -66,7 +112,6 @@ function renderMessage() {
     }
     else if (winner) {
         messageElement.innerHTML = `<span style="color: ${colors[winner]}">${colors[winner].toUpperCase()}</span> wins!!!`;
-
     }
     else {
         messageElement.innerHTML = `<span style="color: ${colors[playerTurn]}">${colors[playerTurn].toUpperCase()}</span>'s turn`;
@@ -81,14 +126,3 @@ function renderControls() {
     })
 }
 
-
-function playersMove(event) {
-    const colClicked = event.target.id;
-    if (colClicked === '') return;
-    const columns = gameBoard[colClicked];
-    const clkRowIndex = columns.indexOf(0);
-
-    console.log(colClicked, clkRowIndex);
-
-    render();
-}

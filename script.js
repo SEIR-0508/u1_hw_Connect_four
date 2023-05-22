@@ -68,7 +68,11 @@ const COLORS = {
       checkHorizontalWin(colIdx, rowIdx) ||
       checkDiagonalWinNESW(colIdx, rowIdx) ||
       checkDiagonalWinNWSE(colIdx, rowIdx);
+
+      
   }
+  
+
   
   function checkDiagonalWinNWSE(colIdx, rowIdx) {
     const adjCountNW = countAdjacent(colIdx, rowIdx, -1, 1);

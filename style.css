@@ -1,0 +1,73 @@
+/* ELEMENTS */
+
+body {
+    width: 100vw;
+    height: 100vh 50vmin;
+    margin: 0, auto;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    border: 1px solid gray;
+    background-color: ghostwhite;
+}
+
+button:hover {
+    color: white;
+    background-color: gray;
+    transition: 200ms;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #461353;
+}
+
+h3 {
+    font-size: 1rem;
+    color: #00167A;
+    text-align: center;
+}
+
+/* CLASSES */
+
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(7, 6rem);
+    grid-template-rows: repeat(6, 6rem);
+    gap: 4px;
+}
+
+.board > div {
+    border-radius: 50%;
+    border: 1px solid gray;
+}
+
+.column-buttons {
+    display: grid;
+    grid-template-columns: repeat(7, 6rem);
+    gap: 4px;
+}
+
+.column-buttons > div {
+    height: 2rem;
+    border-radius: 2rem;
+    border: 1px solid lightgray;
+    margin: 1rem;
+    background-color: ghostwhite;
+}
+
+.column-buttons > div:hover {
+    background-color: lightgray;
+    transition: 200ms;
+}
+
+/* IDS */
